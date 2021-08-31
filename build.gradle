@@ -4,7 +4,7 @@ buildscript {
             compileSdk    : 30,
             buildTools    : '31.0.0',
 
-            kotlin        : '1.5.30',
+            kotlin        : '1.5.21',
             supportLibrary: '27.1.1',
     ]
 
@@ -28,11 +28,10 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        jcenter()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.0'
+        classpath 'com.android.tools.build:gradle:4.2.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
     }
 }
@@ -44,6 +43,7 @@ subprojects {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
 
     buildscript {
