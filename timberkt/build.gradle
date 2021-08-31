@@ -1,12 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'org.jetbrains.dokka-android'
+apply plugin: 'com.github.dcendents.android-maven'
 
-buildscript {
-    dependencies {
-        classpath deps.buildscript.dokka
-    }
-}
+group = 'com.github.panicDev'
 
 android {
     compileSdkVersion versions.compileSdk
@@ -41,38 +37,3 @@ dependencies {
     testImplementation deps.assertj
     testImplementation deps.robolectric
 }
-
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-task javadocJar(type: Jar, dependsOn: dokka) {
-    classifier = 'javadoc'
-    from dokka.outputDirectory
-}
-
-artifacts {
-    archives sourcesJar
-    archives javadocJar
-}
-
-ext {
-    pkgName = 'timberkt'
-    pkgDesc = 'Easy Android logging with Kotlin and Timber '
-    githubRepo = 'github.com/ajalt/timberkt'
-    pkgLicense = 'Apache-2.0'
-    pkgLicenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    devInfo = {
-        id 'ajalt'
-        name 'AJ Alt'
-        url 'https://github.com/ajalt'
-    }
-    bintrayUser = System.getenv('BINTRAY_USER')
-    bintrayKey = System.getenv('BINTRAY_API_KEY')
-    mavenUserToken = System.getenv('MAVEN_USER_TOKEN')
-    mavenUserPass = System.getenv('MAVEN_USER_PASS')
-    deployDryRun = false
-}
-
-//apply from: new File(rootDir, 'deploy.gradle')

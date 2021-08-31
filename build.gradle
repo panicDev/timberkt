@@ -4,14 +4,9 @@ buildscript {
             compileSdk    : 30,
 
             kotlin        : '1.5.21',
-            supportLibrary: '27.1.1',
     ]
 
     ext.deps = [
-            buildscript  : [
-                    dokka: 'org.jetbrains.dokka:dokka-android-gradle-plugin:0.9.16'
-            ],
-
             // library dependencies
             kotlinStdlib : "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}",
             timber       : 'com.jakewharton.timber:timber:5.0.1',
@@ -32,13 +27,11 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
     }
 }
 
 subprojects {
-    version = VERSION_NAME
-    group = GROUP
-
     repositories {
         google()
         mavenCentral()
