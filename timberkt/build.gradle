@@ -1,13 +1,10 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'org.jetbrains.dokka-android'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
 
 buildscript {
     dependencies {
         classpath deps.buildscript.dokka
-        classpath deps.buildscript.bintray
     }
 }
 
@@ -70,4 +67,4 @@ ext {
     deployDryRun = false
 }
 
-apply from: new File(rootDir, 'deploy.gradle')
+//apply from: new File(rootDir, 'deploy.gradle')

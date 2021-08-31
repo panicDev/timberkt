@@ -108,5 +108,5 @@ inline fun wtf(t: Throwable?) = Timber.wtf(t)
 /** @suppress */
 @PublishedApi
 internal inline fun log(block: () -> Unit) {
-    if (Timber.treeCount() > 0) block()
+    if (Timber.treeCount > 0) block()
 }
